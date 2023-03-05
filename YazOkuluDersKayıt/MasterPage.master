@@ -20,8 +20,13 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="#">Ana Sayfa</a></li>
-                <li><a href="OgrenciListele.aspx">Öğrenciler</a></li>
-                <li><a href="#">Öğretmenler</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Öğrenci<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Default.aspx">Öğrenci Ekle</a></li>
+                        <li><a href="OgrenciListele.aspx">Öğrenci Listele</a></li>
+                    </ul>
+
+                    <li><a href="#">Öğretmenler</a></li>
                 <li><a href="#">Dersler</a></li>
                 <li><a href="#">Kontenjanlar</a></li>
                 <li><a href="#">Yardım</a></li>
