@@ -26,7 +26,7 @@ namespace BusinessLogicLayer
 
         public static bool BllOgrenciSil(int p)
         {
-            if (p != null)
+            if (p >0)
             {
                 return DALOgrenci.OgrenciSil(p);
             }
@@ -36,6 +36,18 @@ namespace BusinessLogicLayer
         public static List<EntityOgrenci> BllOgrenciDetay(int p)
         {
             return DALOgrenci.OgrenciDetay(p);
+        }
+
+        public static bool BllOgrenciGuncelle(EntityOgrenci p)
+        {
+            if (p.AD != null && p.AD!="" && p.SOYAD != null && p.SOYAD != "" && p.NUMARA != null && p.NUMARA != "" && p.SIFRE != null && p.SIFRE != "" && p.FOTOGRAF != null && p.FOTOGRAF != "" && p.ID >0)
+            {
+                return DALOgrenci.OgrenciGuncelle(p);
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

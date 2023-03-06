@@ -95,5 +95,24 @@ namespace DataAccessLayer
             dr.Close();
             return degerler;
         }
+
+        public static bool OgrenciGuncelle(EntityOgrenci deger)
+        {
+            SqlCommand komut5 = new SqlCommand("update TBLOGRENCI set OGRAD=@P1, OGRSOYAD=@P2, OGRNUMARA=@P3, OGRFOTO=@P4, OGRSIFRE=@P5 where OGRID=@P6", Baglanti.bgl);
+
+            if (komut5.Connection.State != ConnectionState.Open)
+            {
+                komut5.Connection.Open();
+            }
+
+            komut5.Parameters.AddWithValue("@P1", deger.AD);
+            komut5.Parameters.AddWithValue("@P2", deger.SOYAD);
+            komut5.Parameters.AddWithValue("@P3", deger.NUMARA);
+            komut5.Parameters.AddWithValue("@P4", deger.FOTOGRAF);
+            komut5.Parameters.AddWithValue("@P5", deger.SIFRE);
+            komut5.Parameters.AddWithValue("@P6", deger.ID);
+
+            return komut5.ExecuteNonQuery() > 0;
+        }
     }
 }

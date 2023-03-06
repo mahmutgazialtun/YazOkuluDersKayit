@@ -49,6 +49,6 @@
             </div>
             <br />
         </div>
-        <asp:Button ID="Button1" runat="server" Text="Güncelle"  CssClass="btn btn-warning" style="margin-left:60px" />
+        <asp:Button ID="Button1" runat="server" Text="Güncelle"  CssClass="btn btn-warning" style="margin-left:60px" OnClick="Button1_Click" />
     </form>
 </asp:Content>

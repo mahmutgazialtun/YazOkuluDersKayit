@@ -19,14 +19,32 @@ namespace YazOkuluDersKayıt
             TxtId.Text = x.ToString();
             TxtId.Enabled = false;
 
-            EntityOgrenci ent = new EntityOgrenci();
-            List<EntityOgrenci> OgrList = BLLOgrenci.BllOgrenciDetay(x);
+            if (Page.IsPostBack == false)
+            {
 
-            TxtAd.Text = OgrList[0].AD.ToString();
-            TxtSoyad.Text = OgrList[0].SOYAD.ToString();
-            TxtNumara.Text = OgrList[0].NUMARA.ToString();
-            TxtFoto.Text = OgrList[0].FOTOGRAF.ToString();
-            TxtSıfre.Text = OgrList[0].SIFRE.ToString();
+                EntityOgrenci ent = new EntityOgrenci();
+                List<EntityOgrenci> OgrList = BLLOgrenci.BllOgrenciDetay(x);
+
+                TxtAd.Text = OgrList[0].AD.ToString();
+                TxtSoyad.Text = OgrList[0].SOYAD.ToString();
+                TxtNumara.Text = OgrList[0].NUMARA.ToString();
+                TxtFoto.Text = OgrList[0].FOTOGRAF.ToString();
+                TxtSıfre.Text = OgrList[0].SIFRE.ToString();
+            }
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            EntityOgrenci ent = new EntityOgrenci();
+
+            ent.AD = TxtAd.Text;
+            ent.SOYAD = TxtSoyad.Text;
+            ent.SIFRE = TxtSıfre.Text;
+            ent.NUMARA = TxtNumara.Text;
+            ent.FOTOGRAF = TxtFoto.Text;
+            ent.ID = Convert.ToInt32(TxtId.Text);
+
+            BLLOgrenci.BllOgrenciGuncelle(ent);
+            Response.Redirect("OgrenciListele.aspx");
         }
     }
 }
